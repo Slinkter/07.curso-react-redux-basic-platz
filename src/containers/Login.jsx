@@ -1,10 +1,19 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import googleIcon from "../assets/static/google-icon.png";
 import twitterIcon from "../assets/static/twitter-icon.png";
 import "../assets/styles/components/Login.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { loginRequest } from "../actions";
 
-function Login() {
+const Login = (props) => {
+    const { loginRequest, setFavorite, deleteFavorite } = props;
+    const navigate = useNavigate();
+
+    console.log(loginRequest);
+    console.log(setFavorite);
+    console.log(deleteFavorite);
+
     const [form, setValues] = useState({
         email: "",
         password: "",
@@ -19,7 +28,10 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(form);
+        props.loginRequest(form);
+        navigate("/");
+        /*   props.history.push("/"); */
+        /*  console.log(form); */
     };
 
     return (
@@ -72,6 +84,10 @@ function Login() {
             </section>
         </section>
     );
-}
+};
 
-export default Login;
+/* export default Login; */
+const mapDispatchToProps = {
+    loginRequest,
+};
+export default connect(null, mapDispatchToProps)(Login);
