@@ -4,6 +4,7 @@ import "../assets/styles/components/Register.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { registerRequest } from "../actions";
+import Header from "../components/Header";
 
 function Register(props) {
     const navigate = useNavigate();
@@ -28,7 +29,9 @@ function Register(props) {
     };
 
     return (
-        <div>
+        <React.Fragment>
+            <Header isRegister />
+
             <section className="register">
                 <section className="register__container">
                     <h2>Regístrate</h2>
@@ -62,7 +65,7 @@ function Register(props) {
                     <Link to="/login">Iniciar sesión</Link>
                 </section>
             </section>
-        </div>
+        </React.Fragment>
     );
 }
 
