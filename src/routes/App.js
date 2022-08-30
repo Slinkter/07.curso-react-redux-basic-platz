@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import Home from "../containers/Home";
 import Login from "../containers/Login";
 import NotFound from "../containers/NotFound";
+import Player from "../containers/Player";
 import Register from "../containers/Register";
 
 const App = () => (
@@ -13,6 +14,7 @@ const App = () => (
                 <Route exact path="/home" element={<Home />} />
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/register" element={<Register />} />
+                <Route exact path="/player/:id" element={<Player />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
         </Routes>
