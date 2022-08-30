@@ -8,6 +8,8 @@ import plusIcon from "../assets/static/plus-icon.png";
 import removeIcon from "../assets/static/remove-icon.png";
 import { Link } from "react-router-dom";
 
+
+
 const CarouselItem = (props) => {
     const { id, cover, title, year, contentRating, duration, isList } = props;
 
