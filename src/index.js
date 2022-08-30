@@ -6,7 +6,7 @@ import { legacy_createStore } from "redux";
 import reducer from "./reducer/index"
 const initialState = {
     user: {},
-    playing: {},
+    playing: [],
     myList: [],
     trends: [
         {
