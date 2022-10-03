@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+/* import { useState, useEffect } from 'react';
 
 const useInitialState = (API) => {
   const [ videos, setVideos ] = useState([]);
@@ -11,3 +11,4 @@ const useInitialState = (API) => {
 };
 
 export default useInitialState;
+ */
