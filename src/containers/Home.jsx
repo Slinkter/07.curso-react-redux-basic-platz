@@ -1,24 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
+// Componets
 import Header from "../components/Header";
 import Search from "../components/Search";
 import Categories from "../components/Categories";
 import Carousel from "../components/Carousel";
 import CarouselItem from "../components/CarouselItem";
-//
+// CSS Style
 import "../assets/styles/App.scss";
-
 //
-const mapStateToProps = (state) => {
-    const props = {
-        myList: state.myList,
-        trends: state.trends,
-        originals: state.originals,
-    };
-    return props;
-};
 
-const Home = ({ myList, trends, originals }) => {
+const Home = (props) => {
+    //
+    const { myList, trends, originals } = props;
+    //
     const ListFavorite = (
         <Categories title="Mi Lista">
             <Carousel>
@@ -28,6 +23,7 @@ const Home = ({ myList, trends, originals }) => {
             </Carousel>
         </Categories>
     );
+    //
     return (
         <React.Fragment>
             <Header />
@@ -40,7 +36,7 @@ const Home = ({ myList, trends, originals }) => {
                     ))}
                 </Carousel>
             </Categories>
-            <Categories title="Originales de Platzi Video">
+            <Categories title="Originales ">
                 <Carousel>
                     {originals.map((item) => (
                         <CarouselItem key={item.id} {...item} />
@@ -51,5 +47,13 @@ const Home = ({ myList, trends, originals }) => {
     );
 };
 
-//export default connect(props, actions)(Home);
+const mapStateToProps = (state) => {
+    const props = {
+        myList: state.myList,
+        trends: state.trends,
+        originals: state.originals,
+    };
+    return props;
+};
+
 export default connect(mapStateToProps, null)(Home);

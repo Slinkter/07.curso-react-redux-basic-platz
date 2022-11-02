@@ -67,7 +67,7 @@ CarouselItem.propTypes = {
     duration: PropTypes.number,
 };
 
-// actions ... { setFavorite,    deleteFavorite,}
+// actions 
 const mapDispatchTopros = {
     setFavorite,
     deleteFavorite,

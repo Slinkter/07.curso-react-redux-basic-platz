@@ -10,29 +10,25 @@ import Header from "../components/Header";
 const Login = (props) => {
     const { loginRequest, setFavorite, deleteFavorite } = props;
     const navigate = useNavigate();
-
-    console.log(loginRequest);
-    console.log(setFavorite);
-    console.log(deleteFavorite);
-
-    const [form, setValues] = useState({
+    const initUser = {
         email: "",
         password: "",
-    });
+    };
+    const [form, setValues] = useState(initUser);
 
     const handleInput = (e) => {
-        setValues({
+        const newForm = {
             ...form,
             [e.target.name]: e.target.value,
-        });
+        };
+        setValues(newForm);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.loginRequest(form);
+        //
+        loginRequest(form);
         navigate("/home");
-        /*   props.history.push("/"); */
-        /*  console.log(form); */
     };
 
     return (

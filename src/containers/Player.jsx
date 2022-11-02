@@ -5,11 +5,11 @@ import { connect } from "react-redux";
 import { getVideoSource } from "../actions";
 import NotFound from "./NotFound";
 function Player(props) {
+    //
     const navigate = useNavigate();
     const { id } = useParams();
-    const hasPlaying = Object.keys(props.playing).length > 0;
-    console.log("id", id);
-
+    const hasPlaying = Object.keys(props.playing).length > 0; // booleano
+    //
     useEffect(() => {
         props.getVideoSource(id);
     }, []);

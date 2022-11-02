@@ -1,12 +1,21 @@
+const types = {
+    setFavorite: "SET_FAVORITE",
+    deleteFavorite: "DELETE_FAVORITE",
+    loginRequest: "LOGIN_REQUEST",
+    logoutRequest: "LOGOUT_REQUEST",
+    registerRequest: "REGISTER_REQUEST",
+    getVideoSource: "GET_VIDEO_SOURCE",
+};
+
 const reducer = (state, action) => {
     switch (action.type) {
-        case "SET_FAVORITE":
+        case types.setFavorite:
             return {
                 ...state,
                 myList: [...state.myList, action.payload],
             };
 
-        case "DELETE_FAVORITE":
+        case types.deleteFavorite:
             return {
                 ...state,
                 myList: state.myList.filter(
@@ -14,13 +23,13 @@ const reducer = (state, action) => {
                 ),
             };
 
-        case "LOGIN_REQUEST":
+        case types.loginRequest:
             return { ...state, user: action.payload };
-        case "LOGOUT_REQUEST":
+        case types.logoutRequest:
             return { ...state, user: action.payload };
-        case "REGISTER_REQUEST":
+        case types.registerRequest:
             return { ...state, user: action.payload };
-        case "GET_VIDEO_SOURCE":
+        case types.getVideoSource:
             return {
                 ...state,
                 playing:
@@ -38,4 +47,5 @@ const reducer = (state, action) => {
     }
 };
 
-export default reducer;
+export { types };
+export { reducer };

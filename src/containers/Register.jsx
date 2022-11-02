@@ -21,8 +21,8 @@ function Register(props) {
         });
     };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
         console.log("form", form);
         props.registerRequest(form);
         navigate("/");
