@@ -9,16 +9,25 @@ import playIcon from "../assets/static/play-icon.png";
 import plusIcon from "../assets/static/plus-icon.png";
 import removeIcon from "../assets/static/remove-icon.png";
 
+// se agregan como props a component CarouselItem
+const mapDispatchTopros = {
+    setFavorite,
+    deleteFavorite,
+};
+// --->
 const CarouselItem = (props) => {
     //
     const { id, cover, title, year, contentRating, duration, isList } = props;
     //
+    const { setFavorite, deleteFavorite } = props;
+    //
     const handleSetFavorite = () => {
-        props.setFavorite({ id, cover, title, year, contentRating, duration });
+        const newFavorite = { id, cover, title, year, contentRating, duration };
+        setFavorite(newFavorite);
     };
     //
     const handleDeleteFavorite = (itemId) => {
-        props.deleteFavorite(itemId);
+        deleteFavorite(itemId);
     };
 
     return (
@@ -65,12 +74,6 @@ CarouselItem.propTypes = {
     year: PropTypes.number,
     contentRating: PropTypes.string,
     duration: PropTypes.number,
-};
-
-// actions 
-const mapDispatchTopros = {
-    setFavorite,
-    deleteFavorite,
 };
 
 export default connect(null, mapDispatchTopros)(CarouselItem);
